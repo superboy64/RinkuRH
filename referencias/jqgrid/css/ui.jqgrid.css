@@ -414,7 +414,7 @@
 
 /* Grig body */ 
 .ui-jqgrid .ui-jqgrid-bdiv {
-	min-height: 85%;
+	min-height: 40%;
 	position: relative;
 	margin: 0;
 	padding: 0;
