@@ -9,7 +9,7 @@
       <label>Empleados</label><br>
       
 
-      <button type="button" onclick="location.href='<?php echo base_url(); ?>index.php/Cnt_general/prueba';" class="btn btn-primary"><i class="fa fa-user"></i> Empleados</button>
+      <button type="button" onclick="location.href='<?php echo base_url(); ?>index.php/Cnt_general/empleados';" class="btn btn-primary"><i class="fa fa-user"></i> Empleados</button>
     </div>
     <div class="col-sm-6">
       <label>Movimientos</label><br>
