@@ -221,11 +221,7 @@
 
                         <!--<form class="col-md-12" method="POST" action="{{ route('enlace') }}">-->
                             <div class="row col-md-12">
-                                <div class="input-field col-md-12">
-                                    <label for="txt_numero_empleado_movimiento">numero empleado</label>
-                                    <input id="txt_numero_empleado_movimiento" type="text" class="form-control" name="txt_numero_empleado_movimiento" value="" required>
-                                </div>
-
+                             
                                 <div class="input-field col-md-12">
                                     <label for="cantidad_entregas">#entregas</label>
                                     <input id="cantidad_entregas" type="text" class="form-control" name="telefono" value="" required>
@@ -315,7 +311,9 @@
                     for(var i=0;i<=data.length;i++){
                       $("#dg").jqGrid('addRowData',i+1,data[i]);
                     }
-                 
+                    
+                    $("#dg").jqGrid('navGrid','#ptoolbar',{del:false,add:false,edit:false,search:false});
+                    $("#dg").jqGrid('filterToolbar',{stringResult: true,searchOnEnter : false});
 
               },
               error: function () {
@@ -354,23 +352,23 @@ function guardar_movimiento(){
 
     var rol = rowData['rol'];
     var tipo_contratacion = rowData['tipo_contratacion'];
-    
-    var txt_numero_empleado_movimiento = $("#txt_numero_empleado_movimiento").val();
+    var numero_empleado = rowData['numero_empleado'];
+
     var slc_rol_movimiento = $("#slc_rol_movimiento").val();
     var slc_tipo_contratacion_movimiento = $("#slc_tipo_contratacion_movimiento").val();
     var cantidad_entregas = $("#cantidad_entregas").val();
     var slc_cubrio_turno = $("#slc_cubrio_turno").val();
 
     $.ajax({
-        url: "<?php echo base_url(); ?>index.php/Cnt_general/guardar_empleado",
+        url: "<?php echo base_url(); ?>index.php/Cnt_general/guardar_movimiento",
         type: 'POST',
-        data: {txt_nombre:txt_nombre,
-        txt_numero_empleado:txt_numero_empleado,
-        slc_rol:slc_rol,
-        slc_tipo_contratacion:slc_tipo_contratacion,
-        txt_telefono:txt_telefono,
-        txt_correo:txt_correo,
-        txt_direccion:txt_direccion},
+        data: {rol:rol,
+        tipo_contratacion:tipo_contratacion,
+        numero_empleado:numero_empleado,
+        slc_rol_movimiento:slc_rol_movimiento,
+        slc_tipo_contratacion_movimiento:slc_tipo_contratacion_movimiento,
+        cantidad_entregas:cantidad_entregas,
+        slc_cubrio_turno:slc_cubrio_turno},
         success: function (data) {
                 
                 alert("registro guardado correctamente")        
